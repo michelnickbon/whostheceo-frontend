@@ -1,6 +1,7 @@
 <template>
-  <div class="hello">
-  </div>
+  <v-container class="header-container">
+  <h1 class="text-center"> Who's the CEO? </h1>
+  </v-container>
 </template>
 
 <script>
@@ -13,5 +14,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .header-container {
+    margin-top: 40px;
+  }
 </style>
