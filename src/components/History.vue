@@ -2,13 +2,10 @@
   <div class="history">
     <h3> Recent searches </h3>
     <v-expansion-panels>
-      <v-expansion-panel
-        v-for="(item,i) in 5"
-        :key="i"
-      >
-        <v-expansion-panel-header>Item</v-expansion-panel-header>
+      <v-expansion-panel v-for="item in historyData" :key="item.historyId">
+        <v-expansion-panel-header>{{ item.company.companyName }} - Logged at {{ new Date(item.loggedAt) }}</v-expansion-panel-header>
         <v-expansion-panel-content>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          {{ item.company.companyDescription }}
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -16,12 +13,23 @@
 </template>
 
 <script>
+import * as Base from "../assets/Base";
 export default {
   name: 'History',
   data () {
       return {
+        historyData: null,
       }
+  },
+  async mounted() {
+    try {
+      const result = await Base.GetData("/histories");
+      this.historyData = result;
+    } catch (error) {
+      console.log("Error while fetching data", error);
     }
+  }
+
 }
 
 </script>

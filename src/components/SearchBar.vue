@@ -50,6 +50,7 @@ export default {
         if (companyId) {
           try {
             const result = await Base.GetData("/companies/" + companyId);
+            console.log(result);
           } catch (error) {
             console.log("Error while fetching data", error);
           }
