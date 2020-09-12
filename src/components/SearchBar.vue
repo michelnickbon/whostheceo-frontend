@@ -3,7 +3,9 @@
   <v-autocomplete
     v-model="select"
     :loading="loading"
-    :items="states"
+    :items="availableCompanies"
+    :item-value="'id'"
+    :item-text="'name'"
     :search-input.sync="search"
     cache-items
     class="mx-4"
@@ -17,6 +19,8 @@
 </template>
 
 <script>
+import * as Base from "../assets/Base";
+
 export default {
   name: 'SearchBar',
   data () {
@@ -35,6 +39,21 @@ export default {
           'Colorado',
           'Connecticut',
         ],
+        availableCompanies: []
+      }
+    },
+
+    async mounted() {
+      try {
+        const result = await Base.GetData("/companies/GetCompanyList");
+        result.forEach(company => {
+          const companyItem = {};
+          companyItem["id"] = company.companyId;
+          companyItem["name"] = company.companyName;
+          this.availableCompanies.push(companyItem);
+        });
+      } catch (error) {
+        console.log("Error while fetching data", error);
       }
     }
 }

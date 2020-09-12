@@ -20,7 +20,7 @@
       </v-list-item>
   
       <v-card-actions>
-        <v-btn text>View Company Website</v-btn>
+        <v-btn text>Company Website</v-btn>
       </v-card-actions>
     </v-card>
 

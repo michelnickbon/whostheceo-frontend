@@ -1,13 +1,11 @@
-const endpoint = process.env.VUE_APP_BASEURL;
+const baseUrl = process.env.VUE_APP_BASEURL;
 
-export async function GetData() {
+export async function GetData(endpoint) {
     try {
-        let response = await fetch(endpoint);
+        let response = await fetch(baseUrl + endpoint);
         return await response.json();
     }
     catch (error) {
         console.log(error);
     }
 }
-
-// import * as Base from "../assets/Base"
