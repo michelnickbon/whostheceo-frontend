@@ -23,7 +23,7 @@ export default {
   },
   async mounted() {
     try {
-      const result = await Base.GetData("/histories");
+      const result = await Base.GetData("/history");
       this.historyData = result;
     } catch (error) {
       console.log("Error while fetching data", error);
