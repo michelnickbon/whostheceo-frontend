@@ -11,6 +11,14 @@ export default {
   props: {
     msg: String
   },
+  computed: {
+    totalTvCount () {
+      return this.$store.state.totalTvCount
+    }
+  },
+  mounted() {
+    //this.$store.commit('storeCompany', 1203930);
+  }
 }
 </script>
 

@@ -25,38 +25,50 @@ import * as Base from "../assets/Base";
 export default {
   name: 'SearchBar',
   data () {
-      return {
-        loading: false,
-        search: null,
-        select: null,
-        availableCompanies: []
-      }
-    },
-    async mounted() {
-      try {
-        const result = await Base.GetData("/companies/GetCompanyList");
-        result.forEach(company => {
-          const companyItem = {};
-          companyItem["id"] = company.companyId;
-          companyItem["name"] = company.companyName;
-          this.availableCompanies.push(companyItem);
-        });
-      } catch (error) {
-        console.log("Error while fetching data", error);
-      }
-    },
-    methods: {
-      async loadCompany(companyId) {
-        if (companyId) {
-          try {
-            const result = await Base.GetData("/companies/" + companyId);
-            console.log(result);
-          } catch (error) {
-            console.log("Error while fetching data", error);
-          }
+    return {
+      loading: false,
+      search: null,
+      select: null,
+      availableCompanies: []
+    }
+  },
+
+  async mounted() {
+    try {
+      const result = await Base.GetData("/companies/GetCompanyList");
+      result.forEach(company => {
+        const companyItem = {};
+        companyItem["id"] = company.companyId;
+        companyItem["name"] = company.companyName;
+        this.availableCompanies.push(companyItem);
+      });
+    } catch (error) {
+      console.log("Error while fetching data", error);
+    }
+  },
+
+  methods: {
+
+    // Loads data for the selected company, stored in Vuex
+    async loadCompany(companyId) {
+      if (companyId) {
+        try {
+          const result = await Base.GetData("/companies/" + companyId);
+          await this.$store.commit('storeCompany', result);
+        } catch (error) {
+          console.log("Error while fetching data", error);
         }
       }
+      await this.storeCompany();
+    },
+
+    // Load data from store, save it to the database
+    async storeCompany() {
+      const company = this.$store.state.companyResult;
+      console.log("got from store", company);
     }
+
+  }
 }
 
 </script>
