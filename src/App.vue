@@ -10,10 +10,10 @@
 </template>
 
 <script>
-import Header from './components/Header';
-import SearchBar from './components/SearchBar';
-import Result from './components/Result';
-import History from './components/History';
+import Header from './components/Header'
+import SearchBar from './components/SearchBar'
+import Result from './components/Result'
+import History from './components/History'
 
 export default {
   name: 'App',
@@ -26,8 +26,8 @@ export default {
 
   data: () => ({
     //
-  }),
-};
+  })
+}
 </script>
 
 <style scoped>

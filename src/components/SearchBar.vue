@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import * as Base from "../assets/Base";
+import * as Base from '../assets/Base'
 
 export default {
   name: 'SearchBar',
@@ -30,52 +30,52 @@ export default {
     }
   },
 
-  async mounted() {
+  async mounted () {
     try {
-      const result = await Base.GetData("/companies/GetCompanyList");
+      const result = await Base.GetData('/companies/GetCompanyList')
       result.forEach(company => {
-        const companyItem = {};
-        companyItem["id"] = company.companyId;
-        companyItem["name"] = company.companyName;
-        this.availableCompanies.push(companyItem);
-      });
+        const companyItem = {}
+        companyItem.id = company.companyId
+        companyItem.name = company.companyName
+        this.availableCompanies.push(companyItem)
+      })
     } catch (error) {
-      console.log("Error while fetching data", error);
+      console.log('Error while fetching data', error)
     }
   },
 
   methods: {
 
     // Loads data for the selected company, stored in Vuex
-    async loadCompany(companyId) {
+    async loadCompany (companyId) {
       if (companyId) {
         try {
-          const result = await Base.GetData("/companies/" + companyId);
-          await this.$store.commit('storeResultSuccess', true);
-          await this.$store.commit('storeCompany', result);
+          const result = await Base.GetData('/companies/' + companyId)
+          await this.$store.commit('storeResultSuccess', true)
+          await this.$store.commit('storeCompany', result)
         } catch (error) {
-          console.log("Error while fetching data", error);
+          console.log('Error while fetching data', error)
         }
       }
-      //console.log(this.$store.state.companyResult);
+      // console.log(this.$store.state.companyResult);
 
-      //await this.storeCompany();
+      // await this.storeCompany();
     },
 
     // Load data from store, save it to the database
-    async storeCompany() {
-      //const company = this.$store.state.companyResult;
-      //postBody["companyId"] = 
+    async storeCompany () {
+      // const company = this.$store.state.companyResult;
+      // postBody["companyId"] =
     },
 
     // Store search history to database
-    async storeHistory() {
+    async storeHistory () {
       try {
-        const result = await Base.PostData("/history");
-        await this.$store.commit('clearCompany');
-        console.log(result);
+        const result = await Base.PostData('/history')
+        await this.$store.commit('clearCompany')
+        console.log(result)
       } catch (error) {
-        console.log("Error while storing data", error);
+        console.log('Error while storing data', error)
       }
     }
 
