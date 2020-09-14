@@ -1,22 +1,22 @@
 <template>
   <v-app>
     <v-main class="container">
-      <Header/>
-      <SearchBar/>
-      <Result/>
-      <History/>
+      <Header />
+      <SearchBar />
+      <Result />
+      <History />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Header from './components/Header'
-import SearchBar from './components/SearchBar'
-import Result from './components/Result'
-import History from './components/History'
+import Header from "./components/Header";
+import SearchBar from "./components/SearchBar";
+import Result from "./components/Result";
+import History from "./components/History";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Header,
     SearchBar,
@@ -27,11 +27,11 @@ export default {
   data: () => ({
     //
   })
-}
+};
 </script>
 
 <style scoped>
-  .container {
-    width: 800px;
-  }
+.container {
+  width: 800px;
+}
 </style>

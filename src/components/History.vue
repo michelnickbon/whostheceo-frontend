@@ -1,9 +1,15 @@
 <template>
   <div class="history">
-    <h3 class="history__title"> Recent searches </h3>
+    <h3 class="history__title">Recent searches</h3>
     <v-expansion-panels>
       <v-expansion-panel v-for="item in historyData" :key="item.historyId">
-        <v-expansion-panel-header>{{ item.company.companyName }} <span class="history__logged-at"> Searched at {{ moment(item.loggedAt).format("YYYY-MM-DD h:mm:ss") }}</span></v-expansion-panel-header>
+        <v-expansion-panel-header
+          >{{ item.company.companyName }}
+          <span class="history__logged-at">
+            Searched at
+            {{ moment(item.loggedAt).format("YYYY-MM-DD h:mm:ss") }}</span
+          ></v-expansion-panel-header
+        >
         <v-expansion-panel-content>
           {{ item.company.companyDescription }}
         </v-expansion-panel-content>
@@ -13,26 +19,24 @@
 </template>
 
 <script>
-import * as Base from '../assets/Base'
+import * as Base from "../assets/Base";
 export default {
-  name: 'History',
-  data () {
+  name: "History",
+  data() {
     return {
       historyData: null
-    }
+    };
   },
-  async mounted () {
+  async mounted() {
     try {
-      const result = await Base.GetData('/history')
-      this.historyData = result
-      console.log(this.historyData)
+      const result = await Base.GetData("/history");
+      this.historyData = result;
+      console.log(this.historyData);
     } catch (error) {
-      console.log('Error while fetching data', error)
+      console.log("Error while fetching data", error);
     }
   }
-
-}
-
+};
 </script>
 
 <style scoped>
