@@ -5,7 +5,6 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    totalTvCount: 10,
     companyResult: null
   },
   
@@ -25,6 +24,7 @@ export default new Vuex.Store({
     clearCompany () {
       this.state.companyResult = null;
     }
+
   },
   
   actions: {}

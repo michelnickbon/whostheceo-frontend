@@ -25,6 +25,7 @@ export default {
     try {
       const result = await Base.GetData("/history");
       this.historyData = result;
+      console.log(this.historyData);
     } catch (error) {
       console.log("Error while fetching data", error);
     }

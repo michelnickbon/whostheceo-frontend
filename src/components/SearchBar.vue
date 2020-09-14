@@ -29,7 +29,8 @@ export default {
       loading: false,
       search: null,
       select: null,
-      availableCompanies: []
+      availableCompanies: [],
+      postBody: {}
     }
   },
 
@@ -59,13 +60,26 @@ export default {
           console.log("Error while fetching data", error);
         }
       }
-      await this.storeCompany();
+      console.log(this.$store.state.companyResult);
+
+      //await this.storeCompany();
     },
 
     // Load data from store, save it to the database
     async storeCompany() {
-      const company = this.$store.state.companyResult;
-      console.log("got from store", company);
+      //const company = this.$store.state.companyResult;
+      //postBody["companyId"] = 
+    },
+
+    // Store search history to database
+    async storeHistory() {
+      try {
+        const result = await Base.PostData("/history");
+        await this.$store.commit('clearCompany');
+        console.log(result);
+      } catch (error) {
+        console.log("Error while storing data", error);
+      }
     }
 
   }
