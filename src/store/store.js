@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    companyResult: null
+    companyResult: null,
+    companyWasFetched: false
   },
   
   getters: {
@@ -23,6 +24,12 @@ export default new Vuex.Store({
     // Clear company state
     clearCompany () {
       this.state.companyResult = null;
+    },
+
+    // Update if result was fetched successfully
+    storeResultSuccess(state, payload) {
+      console.log("storeResultSuccess", state, payload);
+      this.state.companyWasFetched = payload;
     }
 
   },

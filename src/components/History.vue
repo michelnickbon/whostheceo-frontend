@@ -50,5 +50,4 @@ export default {
   margin: 3px 10px 0px 0px;
   font-size: 14px;
 }
-
 </style>

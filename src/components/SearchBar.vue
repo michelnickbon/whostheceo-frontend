@@ -3,11 +3,9 @@
     <v-autocomplete
       @change="loadCompany"
       v-model="select"
-      :loading="loading"
       :items="availableCompanies"
       :item-value="'id'"
       :item-text="'name'"
-      :search-input.sync="search"
       cache-items
       class="mx-4"
       flat
@@ -26,8 +24,6 @@ export default {
   name: 'SearchBar',
   data () {
     return {
-      loading: false,
-      search: null,
       select: null,
       availableCompanies: [],
       postBody: {}
@@ -55,12 +51,13 @@ export default {
       if (companyId) {
         try {
           const result = await Base.GetData("/companies/" + companyId);
+          await this.$store.commit('storeResultSuccess', true);
           await this.$store.commit('storeCompany', result);
         } catch (error) {
           console.log("Error while fetching data", error);
         }
       }
-      console.log(this.$store.state.companyResult);
+      //console.log(this.$store.state.companyResult);
 
       //await this.storeCompany();
     },
@@ -84,9 +81,7 @@ export default {
 
   }
 }
-
 </script>
 
 <style scoped>
-
 </style>

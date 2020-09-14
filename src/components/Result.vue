@@ -1,47 +1,49 @@
 <template>
-  <div>
-    <v-card
-      class="mx-auto result-card"
-      max-width="750"
-      outlined
-    >
+  <div v-if="companyWasFetched == true">
+    <v-card class="mx-auto result-card" max-width="750" outlined>
+
+      <!-- CEO info -->
       <v-list-item three-line>
         <v-list-item-content>
-          <div class="overline mb-4">CEO</div>
-          <v-list-item-title class="headline mb-1">Apple</v-list-item-title>
-          <v-list-item-subtitle>Timothy Donald Cook is an American business executive, philanthropist and industrial engineer. Cook is the chief executive officer of Apple Inc., and previously served as the company's chief operating officer under its cofounder Steve Jobs.</v-list-item-subtitle>
+          <div class="overline mb-4">CEO of {{companyResult.companyName}}</div>
+          <v-list-item-title class="headline mb-1"> {{companyResult.ceo.fullName}} </v-list-item-title>
+          <v-list-item-subtitle> {{companyResult.ceo.shortBio}} </v-list-item-subtitle>
+          <v-list-item-subtitle> Active from {{ moment(companyResult.ceo.activeFrom).format("YYYY-MM-DD") }} </v-list-item-subtitle>
         </v-list-item-content>
-  
-        <v-list-item-avatar
-          tile
-          size="80"
-          color="grey"
-        ></v-list-item-avatar>
+        <v-avatar size="100">
+          <img :src="companyResult.ceo.imageRef" size="80">
+        </v-avatar>
       </v-list-item>
-  
+
+      <!-- Company info -->
+      <v-list-item three-line>
+        <v-list-item-content>
+          <v-list-item-title> About {{companyResult.companyName}}...</v-list-item-title>
+          <v-list-item-subtitle>  {{companyResult.companyDescription}} </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+
+      <!-- Website section -->
       <v-card-actions>
         <v-btn text>Company Website</v-btn>
       </v-card-actions>
     </v-card>
-
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
   name: 'Result',
+  computed: mapState(['companyWasFetched', 'companyResult']),
   data () {
-      return {
-      }
-    }
+    return {}
+  },
 }
-
 </script>
 
 <style scoped>
-
   .result-card {
     margin-top: 20px;
   }
-
 </style>

@@ -7,7 +7,6 @@ import moment from 'moment'
 Vue.prototype.moment = moment
 Vue.config.productionTip = false
 
-
 new Vue({
   store,
   vuetify,

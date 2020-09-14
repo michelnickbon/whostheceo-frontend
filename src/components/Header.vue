@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style scoped>
-  .header-container {
-    margin-top: 40px;
-  }
+.header-container {
+  margin-top: 40px;
+}
 </style>
