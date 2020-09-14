@@ -25,9 +25,10 @@
 
       <!-- Website section -->
       <v-card-actions>
-        <v-btn text>Company Website</v-btn>
+        <v-btn small class="ma-2" :href="companyResult.companyWebsite" tile color="indigo" dark>Company Website</v-btn>
       </v-card-actions>
     </v-card>
+
   </div>
 </template>
 
