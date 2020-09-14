@@ -55,10 +55,10 @@
 import { mapState } from "vuex";
 export default {
   name: "Result",
-  computed: mapState(["companyWasFetched", "companyResult"]),
   data() {
     return {};
-  }
+  },
+  computed: mapState(["companyWasFetched", "companyResult"]),
 };
 </script>
 

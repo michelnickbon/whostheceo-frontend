@@ -11,14 +11,15 @@
       hide-no-data
       hide-details
       label="Search for a publicly listed company"
-      @change="loadCompany"
       solo-inverted
+      @change="loadCompany"
     ></v-autocomplete>
   </div>
 </template>
 
 <script>
 import * as Base from "../assets/Base";
+import moment from "moment";
 
 export default {
   name: "SearchBar",
@@ -56,15 +57,15 @@ export default {
           console.log("Error while fetching data", error);
         }
       }
-      // console.log(this.$store.state.companyResult);
-
-      // await this.storeCompany();
+      await this.storeCompany();
     },
 
     // Load data from store, save it to the database
     async storeCompany() {
-      // const company = this.$store.state.companyResult;
-      // postBody["companyId"] =
+      const company = this.$store.state.companyResult;
+      this.postBody["companyId"] = company.companyId;
+      this.postBody["loggedAt"] = moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
+      console.log("Ready to be posted", this.postBody);
     },
 
     // Store search history to database

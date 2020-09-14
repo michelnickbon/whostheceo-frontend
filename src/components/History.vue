@@ -1,6 +1,6 @@
 <template>
   <div class="history">
-    <h3 class="history__title">Recent searches</h3>
+    <h3 class="history__title">Recent company searches</h3>
     <v-expansion-panels>
       <v-expansion-panel v-for="item in historyData" :key="item.historyId">
         <v-expansion-panel-header
