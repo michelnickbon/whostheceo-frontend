@@ -3,6 +3,7 @@
     <h3 class="history__title"> Recent searches </h3>
     <v-expansion-panels>
       <v-expansion-panel v-for="item in historyData" :key="item.historyId">
+                <v-icon>search</v-icon>
         <v-expansion-panel-header>{{ item.company.companyName }} <span class="history__logged-at"> Searched at {{ moment(item.loggedAt).format("YYYY-MM-DD h:mm:ss") }}</span></v-expansion-panel-header>
         <v-expansion-panel-content>
           {{ item.company.companyDescription }}

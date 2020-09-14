@@ -1,7 +1,6 @@
 <template>
   <div v-if="companyWasFetched == true">
-    <v-card class="mx-auto result-card" max-width="750" outlined>
-
+    <v-card class="mx-auto result-card elevation-{3}" max-width="750" >
       <!-- CEO info -->
       <v-list-item three-line>
         <v-list-item-content>
