@@ -7,7 +7,7 @@
           >{{ item.company.companyName }}
           <span class="history__logged-at">
             Searched at
-            {{ moment(item.loggedAt).format("YYYY-MM-DD h:mm:ss") }}</span
+            {{ moment(item.loggedAt).format("YYYY-MM-DD H:mm:ss") }}</span
           ></v-expansion-panel-header
         >
         <v-expansion-panel-content>
@@ -31,7 +31,6 @@ export default {
     try {
       const result = await Base.GetData("/history");
       this.historyData = result;
-      console.log(this.historyData);
     } catch (error) {
       console.log("Error while fetching data", error);
     }

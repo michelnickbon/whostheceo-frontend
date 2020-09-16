@@ -63,9 +63,10 @@ export default {
     // Load data from store, save it to the database
     async storeCompany() {
       const company = this.$store.state.companyResult;
-      this.postBody["companyId"] = company.companyId;
-      this.postBody["loggedAt"] = moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
-      console.log("Ready to be posted", this.postBody);
+      this.postBody["CompanyId"] = company.companyId;
+      this.postBody["LoggedAt"] = moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
+      await Base.PostData("/history", this.postBody);
+      this.postBody = {};
     },
 
     // Store search history to database

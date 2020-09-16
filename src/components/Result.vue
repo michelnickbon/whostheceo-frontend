@@ -1,5 +1,5 @@
 <template>
-  <div v-if="companyWasFetched == true">
+  <div v-if="companyWasFetched == true && companyResult">
     <v-card class="mx-auto result-card elevation-{3}" max-width="750">
       <!-- CEO info -->
       <v-list-item three-line>
@@ -58,7 +58,7 @@ export default {
   data() {
     return {};
   },
-  computed: mapState(["companyWasFetched", "companyResult"]),
+  computed: mapState(["companyWasFetched", "companyResult"])
 };
 </script>
 
