@@ -1,6 +1,6 @@
 <template>
   <div class="history">
-    <h3 class="history__title">Recent company searches</h3>
+    <h3 class="history__title">Recently searched</h3>
     <v-expansion-panels>
       <v-expansion-panel v-for="item in historyData" :key="item.historyId">
         <v-expansion-panel-header
@@ -8,8 +8,7 @@
           <span class="history__logged-at">
             Searched at
             {{ moment(item.loggedAt).format("YYYY-MM-DD H:mm:ss") }}</span
-          ></v-expansion-panel-header
-        >
+          ></v-expansion-panel-header>
         <v-expansion-panel-content>
           {{ item.company.companyDescription }}
         </v-expansion-panel-content>
@@ -40,8 +39,8 @@ export default {
 
 <style scoped>
 .history {
-  margin: 40px 30px 0px 25px;
-  width: 750px;
+  margin: 40px auto 0px auto;
+  width: 765px;
 }
 
 .history__title {

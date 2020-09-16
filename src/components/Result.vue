@@ -1,38 +1,22 @@
 <template>
   <div v-if="companyWasFetched == true && companyResult">
-    <v-card class="mx-auto result-card elevation-{3}" max-width="750">
+    <v-card class="mx-auto result-card elevation-{3}" max-width="765">
       <!-- CEO info -->
       <v-list-item three-line>
-        <v-list-item-content>
-          <div class="overline mb-4">
-            CEO of {{ companyResult.companyName }}
+        <v-list-item-content class="result">
+          <div class="overline mb-1">
+            CEO of {{ companyResult.companyName }} (
+            {{ moment(companyResult.ceo.activeFrom).format("YYYY") }} - )
           </div>
           <v-list-item-title class="headline mb-1">
             {{ companyResult.ceo.fullName }}
           </v-list-item-title>
-          <v-list-item-subtitle>
-            {{ companyResult.ceo.shortBio }}
-          </v-list-item-subtitle>
-          <v-list-item-subtitle>
-            Active from
-            {{ moment(companyResult.ceo.activeFrom).format("YYYY-MM-DD") }}
-          </v-list-item-subtitle>
+          <p class="ceo-bio">{{ companyResult.ceo.shortBio }}</p>
+          <p class="company-bio">{{ companyResult.companyDescription }}</p>
         </v-list-item-content>
-        <v-avatar size="100">
-          <img :src="companyResult.ceo.imageRef" size="80" />
+        <v-avatar :tile="true" size="100">
+          <img :src="companyResult.ceo.imageRef" size="100" />
         </v-avatar>
-      </v-list-item>
-
-      <!-- Company info -->
-      <v-list-item three-line>
-        <v-list-item-content>
-          <v-list-item-title>
-            About {{ companyResult.companyName }}...</v-list-item-title
-          >
-          <v-list-item-subtitle>
-            {{ companyResult.companyDescription }}
-          </v-list-item-subtitle>
-        </v-list-item-content>
       </v-list-item>
 
       <!-- Website section -->
@@ -66,4 +50,20 @@ export default {
 .result-card {
   margin-top: 20px;
 }
+
+.ceo-bio {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.company-bio {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 10px 0px 0px 0px;
+}
+
+.result {
+  padding: 0px 60px 0px 0px;
+}
+
 </style>
