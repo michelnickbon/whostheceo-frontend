@@ -3,9 +3,9 @@ Front end web app providing information about public companies and their CEO's.
 This application acts as the front-end implementation of [whostheceo-api-service](https://github.com/michelnickbon/whostheceo-api-service).
 
 # Information
-- Vue.js 2.6.11
+- Vue.js
 - Vuetify
-- State management: Vuex
+- Vuex
 - Test are coming soon!
 
 # Preview
