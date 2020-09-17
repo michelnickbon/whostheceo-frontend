@@ -8,5 +8,5 @@ This application acts as the front-end implementation of [whostheceo-api-service
 - State management: Vuex
 - Test are coming soon!
 
-<!-- # Preview
+# Preview
 ![Scheme](preview.PNG) -->

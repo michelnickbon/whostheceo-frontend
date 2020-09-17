@@ -33,7 +33,7 @@ export default {
 
   async mounted() {
     try {
-      const result = await Base.GetData("/companies/GetCompanyList");
+      const result = await Base.GetData("/companies/list");
       result.forEach(company => {
         const companyItem = {};
         companyItem.id = company.companyId;

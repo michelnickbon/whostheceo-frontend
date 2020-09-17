@@ -54,16 +54,17 @@ export default {
 .ceo-bio {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.6);
+  line-height: 18px;
 }
 
 .company-bio {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.6);
   margin: 10px 0px 0px 0px;
+  line-height: 18px;
 }
 
 .result {
   padding: 0px 60px 0px 0px;
 }
-
 </style>
