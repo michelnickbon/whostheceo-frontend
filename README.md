@@ -9,4 +9,4 @@ This application acts as the front-end implementation of [whostheceo-api-service
 - Test are coming soon!
 
 # Preview
-![Scheme](preview.PNG) -->
+![Scheme](preview.PNG)
