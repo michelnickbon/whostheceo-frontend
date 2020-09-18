@@ -1,5 +1,6 @@
 const baseUrl = process.env.VUE_APP_BASEURL;
 
+// Generic GET method
 export async function GetData(endpoint) {
   try {
     const response = await fetch(baseUrl + endpoint);
@@ -9,6 +10,7 @@ export async function GetData(endpoint) {
   }
 }
 
+// Generic POST method
 export async function PostData(endpoint, body) {
   try {
     const response = await fetch(baseUrl + endpoint, {

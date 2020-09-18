@@ -28,8 +28,9 @@
           tile
           color="indigo"
           dark
-          >Company Website</v-btn
         >
+          Company Website
+        </v-btn>
       </v-card-actions>
     </v-card>
   </div>

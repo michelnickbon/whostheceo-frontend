@@ -7,8 +7,9 @@
           >{{ item.company.companyName }}
           <span class="history__logged-at">
             Searched at
-            {{ moment(item.loggedAt).format("YYYY-MM-DD H:mm:ss") }}</span
-          ></v-expansion-panel-header>
+            {{ moment(item.loggedAt).format("YYYY-MM-DD H:mm:ss") }}
+          </span>
+        </v-expansion-panel-header>
         <v-expansion-panel-content>
           {{ item.company.companyDescription }}
         </v-expansion-panel-content>

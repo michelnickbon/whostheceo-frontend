@@ -69,7 +69,7 @@ export default {
       this.postBody = {};
     },
 
-    // Store search history to database
+    // Store history to database
     async storeHistory() {
       try {
         const result = await Base.PostData("/history");
