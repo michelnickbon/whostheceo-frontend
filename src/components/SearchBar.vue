@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import * as Base from "../assets/Base";
+import * as Base from "../services/Base";
 import moment from "moment";
 
 export default {

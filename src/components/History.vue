@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import * as Base from "../assets/Base";
+import * as Base from "../services/Base";
 export default {
   name: "History",
   data() {
